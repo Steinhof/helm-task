@@ -1,0 +1,8 @@
+global:
+  postgresql:
+    postgresqlDatabase: otus
+    postgresqlUsername: postgres
+    postgresqlPassword: root
+
+image:
+  tag: 13
