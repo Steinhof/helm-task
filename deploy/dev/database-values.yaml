@@ -6,3 +6,6 @@ global:
 
 image:
   tag: 13
+
+service:
+  type: LoadBalancer

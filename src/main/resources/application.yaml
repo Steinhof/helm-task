@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://app-postgresql:5432/otus
+    username: postgres
+    password: root
+
+  liquibase:
+    enabled: false
+
