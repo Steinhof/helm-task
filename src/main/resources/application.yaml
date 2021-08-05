@@ -1,9 +1,14 @@
 spring:
+  main:
+    banner-mode: off
   datasource:
-    url: jdbc:postgresql://app-postgresql:5432/otus
+    url: jdbc:postgresql://helm-task-postgresql:5432/otus
     username: postgres
     password: root
 
-  liquibase:
-    enabled: false
-
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always

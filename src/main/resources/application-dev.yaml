@@ -4,7 +4,7 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:postgresql://192.168.49.2:30902/otus
+    url: jdbc:postgresql://192.168.49.2:32282/otus
     username: postgres
     password: root
 

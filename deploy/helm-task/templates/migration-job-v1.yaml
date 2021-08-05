@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migration-job-v1
+spec:
+  template:
+    spec:
+      containers:
+        - name: flyway
+          image: flyway/flyway
+          args: [ 'migrate' ]
+          envFrom:
+            - configMapRef:
+                name: migration-cm-v1
+            - secretRef:
+                name: database-secrets
+          volumeMounts:
+            - name: config-volume
+              mountPath: /flyway/sql
+      restartPolicy: Never
+      volumes:
+        - name: config-volume
+          configMap:
+            name: changelog-cm-v1

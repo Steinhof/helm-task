@@ -1,0 +1,12 @@
+---
+- name: Helm development charts
+  hosts: localhost
+  tasks:
+    - name: helm
+      kubernetes.core.helm:
+        name: database
+        chart_ref: bitnami/postgresql
+        release_namespace: default
+        create_namespace: true
+        values_files:
+          - ./database-values.yaml

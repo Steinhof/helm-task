@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: changelog-cm-v1
+  labels:
+    name: changelog-cm-v1
+data:
+  V1_1_0__migration.sql:  {{ .Files.Get "migration/V1_1_0__migration.sql" | indent  4 }}

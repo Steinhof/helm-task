@@ -1,11 +1,9 @@
 app:
-  appName: helm-task-deployment
-  appLabel: helm-task
+  name: helm-task
   replicas: 1
   container:
-    name: helm-task
     image: tardis5159/helm-task:latest
-    containerPort: 8080
+    port: 8080
 
 
 global:
