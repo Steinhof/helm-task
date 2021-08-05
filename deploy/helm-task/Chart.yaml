@@ -9,6 +9,9 @@ dependencies:
   - name: postgresql
     version: 10.9.1
     repository: https://charts.bitnami.com/bitnami
-#  - name: nginx-ingress-controller
-#    version: 7.6.18
+#  - name: nginx
+#    version: 9.4.2
 #    repository: https://charts.bitnami.com/bitnami
+  - name: nginx-ingress-controller
+    version: 7.6.18
+    repository: https://charts.bitnami.com/bitnami

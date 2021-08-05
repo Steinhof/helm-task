@@ -1,9 +1,8 @@
 app:
   name: helm-task
   replicas: 1
-  container:
-    image: tardis5159/helm-task:latest
-    port: 8080
+  port: 8080
+  image: tardis5159/helm-task:latest
 
 
 global:
@@ -15,3 +14,20 @@ global:
 postgresql:
   image:
     tag: 13
+  lifecycleHooks: { pre-install }
+
+
+#nginx:
+#  ingress:
+#    enabled: true
+#    hostname: arch.homework
+#  service:
+#    type: ClusterIP
+#    loadBalancerIP: helm-task
+#    annotations:
+#      kubernetes.io/ingress.class: nginx
+#      nginx.ingress.kubernetes.io/rewrite-target: /
+
+nginx-ingress-controller:
+  publishService:
+    enabled: true

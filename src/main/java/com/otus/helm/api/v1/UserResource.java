@@ -6,11 +6,7 @@ import com.otus.helm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 
 
 @RestController
@@ -20,9 +16,9 @@ public class UserResource {
 
     private final UserRepository userRepository;
 
-    @GetMapping("/user/{name}")
-    public User getUser(@PathVariable String name) {
-        return userRepository.findByUsername(name);
+    @GetMapping("/user/{id}")
+    public User getUser(@PathVariable String id) {
+        return userRepository.findById(Long.valueOf(id)).get();
     }
 
     @PostMapping("/user")

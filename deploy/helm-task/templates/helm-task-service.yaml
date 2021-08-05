@@ -6,4 +6,4 @@ spec:
   selector:
     app: {{.Values.app.name}}
   ports:
-    - port: 8000
+    - port: {{.Values.app.port}}

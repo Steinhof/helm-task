@@ -8,6 +8,3 @@ spring:
     username: postgres
     password: root
 
-  liquibase:
-    enabled: false
-

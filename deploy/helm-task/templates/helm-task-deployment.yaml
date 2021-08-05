@@ -17,17 +17,17 @@ spec:
     spec:
       containers:
         - name: {{.name}}
-          image: {{.container.image}}
+          image: {{.image}}
           ports:
-            - containerPort: {{.container.port}}
+            - containerPort: {{.port}}
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 8000
+              port: 8080
             initialDelaySeconds: 10
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8000
+              port: 8080
             initialDelaySeconds: 20
   {{- end }}
