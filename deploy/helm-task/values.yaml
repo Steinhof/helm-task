@@ -10,6 +10,10 @@ migrations:
 
 
 postgresql:
+  uri: jdbc:postgresql://helm-task-postgresql:5432/otus
+  service:
+    type: LoadBalancer
+    nodePort: 32766
   postgresqlDatabase: otus
   postgresqlUsername: postgres
   postgresqlPassword: root
@@ -32,8 +36,8 @@ nginx-ingress-controller:
     serviceMonitor:
       enabled: true
 
-kube-prometheus-stack:
-  prometheus:
-    prometheusSpec:
-      serviceMonitorSelectorNilUsesHelmValues: false
-      serviceMonitorSelector: { }
+#kube-prometheus-stack:
+#  prometheus:
+#    prometheusSpec:
+#      serviceMonitorSelectorNilUsesHelmValues: false
+#      serviceMonitorSelector: { }

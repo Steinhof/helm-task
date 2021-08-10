@@ -1,12 +1,9 @@
 dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 10.9.1
+  version: 10.10.1
 - name: nginx-ingress-controller
   repository: https://charts.bitnami.com/bitnami
-  version: 7.6.18
-- name: kube-prometheus-stack
-  repository: https://prometheus-community.github.io/helm-charts
-  version: 17.1.1
-digest: sha256:15b1adc1cf48aaa8fe9e3885defda7d374158e0b7a7d9cf0fd3cbd0e06ab0a32
-generated: "2021-08-07T03:12:52.114856051+03:00"
+  version: 7.6.21
+digest: sha256:b020a6b3aed9ef48f1a119fc653b3727386c99701c7d60530b573163ded8624e
+generated: "2021-09-19T23:45:33.230199153+03:00"

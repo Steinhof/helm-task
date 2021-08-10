@@ -1,21 +1,19 @@
 package com.otus.helm.entity
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-@Table(name = "users")
-class User(
+@Table("users")
+data class User(
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val id: Long?,
 
-    var username: String? = null,
+    val login: String,
 
-    var firstname: String? = null,
+    val password: String,
 
-    var lastname: String? = null,
+    val name: String,
 
-    var email: String? = null,
-
-    var phone: String? = null
+    val role: String,
 )
