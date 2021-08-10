@@ -1,14 +1,18 @@
 apiVersion: skaffold/v2beta19
 kind: Config
 build:
-  local:
-    push: false
   artifacts:
     - image: helm-task
+      jib:
+        type: gradle
 deploy:
   helm:
     releases:
       - name: helm-task
-        chartPath: ./deploy/app
-        artifactOverrides:
-          image: helm-task
+        chartPath: ./deploy/helm-task
+        skipBuildDependencies: true
+portForward:
+  - resourceType: deployment
+    resourceName: helm-task-deployment
+    namespace: default
+    port: 8080

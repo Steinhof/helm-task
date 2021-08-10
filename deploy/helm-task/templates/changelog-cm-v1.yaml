@@ -5,4 +5,4 @@ metadata:
   labels:
     name: changelog-cm-v1
 data:
-  V1_1_0__migration.sql:  {{ .Files.Get "migration/V1_1_0__migration.sql" | indent  4 }}
+  {{- (.Files.Glob "migrations/*.sql").AsConfig | nindent 4 }}

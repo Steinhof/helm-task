@@ -5,5 +5,8 @@ dependencies:
 - name: nginx-ingress-controller
   repository: https://charts.bitnami.com/bitnami
   version: 7.6.18
-digest: sha256:8dd844760f7113d982da031b137af2dd4af87b623fce476def36f1b68f8dc678
-generated: "2021-08-06T02:07:26.558548599+03:00"
+- name: kube-prometheus-stack
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 17.1.1
+digest: sha256:15b1adc1cf48aaa8fe9e3885defda7d374158e0b7a7d9cf0fd3cbd0e06ab0a32
+generated: "2021-08-07T03:12:52.114856051+03:00"

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  {{- with .Values.app }}
+  {{- with .Values.helmTaskApp }}
   name: {{ .name }}-deployment
   labels:
     app: {{ .name }}
@@ -19,15 +19,19 @@ spec:
         - name: {{.name}}
           image: {{.image}}
           ports:
-            - containerPort: {{.port}}
+            - name: {{.name}}
+              containerPort: {{.port}}
+          envFrom:
+            - configMapRef:
+                name: helm-task-cm
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 8080
+              port: {{.port}}
             initialDelaySeconds: 10
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8080
+              port: {{.port}}
             initialDelaySeconds: 20
   {{- end }}

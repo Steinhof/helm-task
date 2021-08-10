@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{.Values.app.name}}-ingress
+  name: {{.Values.helmTaskApp.name}}-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
@@ -15,4 +15,4 @@ spec:
               service:
                 name: helm-task-service
                 port:
-                  number: 8080
+                  name: {{.Values.helmTaskApp.name}}

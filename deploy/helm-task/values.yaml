@@ -1,33 +1,39 @@
-app:
+helmTaskApp:
   name: helm-task
   replicas: 1
   port: 8080
   image: tardis5159/helm-task:latest
 
 
-global:
-  postgresql:
-    postgresqlDatabase: otus
-    postgresqlUsername: postgres
-    postgresqlPassword: root
+migrations:
+  version: V1_1_0
+
 
 postgresql:
-  image:
-    tag: 13
-  lifecycleHooks: { pre-install }
+  postgresqlDatabase: otus
+  postgresqlUsername: postgres
+  postgresqlPassword: root
+  commonAnnotations:
+    "helm.sh/hook": pre-install
 
-
-#nginx:
-#  ingress:
-#    enabled: true
-#    hostname: arch.homework
-#  service:
-#    type: ClusterIP
-#    loadBalancerIP: helm-task
-#    annotations:
-#      kubernetes.io/ingress.class: nginx
-#      nginx.ingress.kubernetes.io/rewrite-target: /
 
 nginx-ingress-controller:
-  publishService:
+  kind: DaemonSet
+  reportNodeInternalIp: true
+  daemonset:
+    useHostPort: true
+    hostPorts:
+      http: 80
+      https: 443
+  service:
+    type: NodePort
+  metrics:
     enabled: true
+    serviceMonitor:
+      enabled: true
+
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      serviceMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelector: { }
