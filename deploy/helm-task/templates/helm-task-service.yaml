@@ -1,12 +1,12 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{.Values.helmTaskApp.name}}-service
-  labels:
-    app: {{.Values.helmTaskApp.name}}
-spec:
-  selector:
-    app: {{.Values.helmTaskApp.name}}
-  ports:
-    - name: {{.Values.helmTaskApp.name}}
-      port: {{.Values.helmTaskApp.port}}
+{{/*apiVersion: v1*/}}
+{{/*kind: Service*/}}
+{{/*metadata:*/}}
+{{/*  name: {{.Values.helmTaskApp.name}}-service*/}}
+{{/*  labels:*/}}
+{{/*    app: {{.Values.helmTaskApp.name}}*/}}
+{{/*spec:*/}}
+{{/*  selector:*/}}
+{{/*    app: {{.Values.helmTaskApp.name}}*/}}
+{{/*  ports:*/}}
+{{/*    - name: {{.Values.helmTaskApp.name}}*/}}
+{{/*      port: {{.Values.helmTaskApp.port}}*/}}

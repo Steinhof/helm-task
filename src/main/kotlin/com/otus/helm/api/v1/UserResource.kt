@@ -27,7 +27,6 @@ class UserResource(
     fun updateUser(@RequestBody userRequest: UserUpdateRequest, @PathVariable login: String): Mono<User?> {
         return userRepository
             .findByLogin(login)
-            .log()
             .map { user -> UserMapper.from(userRequest, user) }
             .flatMap { user -> userRepository.save(user) }
     }

@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: helm-task-cm
 data:
-  SPRING_DATASOURCE_URL: {{.Values.postgresql.uri}}
-  SPRING_DATASOURCE_USERNAME: {{.Values.postgresql.postgresqlUsername}}
-  SPRING_DATASOURCE_PASSWORD: {{.Values.postgresql.postgresqlPassword}}
+  SPRING_DATASOURCE_URL: {{.Values.credentials.database.uri}}
+  SPRING_DATASOURCE_USERNAME: {{.Values.credentials.database.username}}
+  SPRING_DATASOURCE_PASSWORD: {{.Values.credentials.database.password}}

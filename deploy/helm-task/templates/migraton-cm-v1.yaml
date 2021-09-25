@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: migration-cm-v1
-data:
-  FLYWAY_URL: {{.Values.postgresql.uri}}
-  FLYWAY_USER: {{.Values.postgresql.postgresqlUsername}}
-  FLYWAY_PASSWORD: {{.Values.postgresql.postgresqlPassword}}
-  FLYWAY_DRIVER: org.postgresql.Driver

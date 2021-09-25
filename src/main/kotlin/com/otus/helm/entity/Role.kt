@@ -21,5 +21,5 @@ data class Role(
     @Id
     private val name: UserRole,
 
-    private val permissions: Permissions
+    private val permissions: List<Permissions>
 )

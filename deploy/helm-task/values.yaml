@@ -5,20 +5,24 @@ helmTaskApp:
   image: tardis5159/helm-task:latest
 
 
-migrations:
-  version: V1_1_0
+credentials:
+  database:
+    name: otus
+    uri: jdbc:postgresql://helm-task-postgresql-ha-postgresql:5432/otus
+    username: postgres
+    password: root
 
 
-postgresql:
-  uri: jdbc:postgresql://helm-task-postgresql:5432/otus
-  service:
-    type: LoadBalancer
-    nodePort: 32766
-  postgresqlDatabase: otus
-  postgresqlUsername: postgres
-  postgresqlPassword: root
-  commonAnnotations:
-    "helm.sh/hook": pre-install
+postgresql-ha:
+  postgresql:
+    database: otus
+    username: postgres
+    password: root
+    repmgrUsername: repmgr
+    repmgrPassword: root
+    repmgrDatabase: repmgr
+#  commonAnnotations:
+#    "helm.sh/hook": pre-install
 
 
 nginx-ingress-controller:
@@ -31,10 +35,10 @@ nginx-ingress-controller:
       https: 443
   service:
     type: NodePort
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
+#  metrics:
+#    enabled: true
+#    serviceMonitor:
+#      enabled: true
 
 #kube-prometheus-stack:
 #  prometheus:

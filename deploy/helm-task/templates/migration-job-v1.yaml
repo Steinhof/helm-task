@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: migration-job-v1
   annotations:
-    "helm.sh/hook": post-install
+    "helm.sh/hook": "post-install"
 spec:
   template:
     spec:
@@ -11,9 +11,16 @@ spec:
         - name: flyway
           image: flyway/flyway
           args: [ 'migrate' ]
+          env:
+            - name: FLYWAY_URL
+              value: {{.Values.credentials.database.uri}}
+            - name: FLYWAY_USER
+              value: {{.Values.credentials.database.username}}
+            - name: FLYWAY_PASSWORD
+              value: {{.Values.credentials.database.password}}
+            - name: FLYWAY_DRIVER
+              value: org.postgresql.Driver
           envFrom:
-            - configMapRef:
-                name: migration-cm-v1
             - secretRef:
                 name: database-secrets
           volumeMounts:
@@ -23,4 +30,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: changelog-cm-v1
+            name: migrations-cm

@@ -1,37 +1,37 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  {{- with .Values.helmTaskApp }}
-  name: {{ .name }}-deployment
-  labels:
-    app: {{ .name }}
-spec:
-  replicas: {{ .replicas }}
-  selector:
-    matchLabels:
-      app: {{ .name }}
-  template:
-    metadata:
-      labels:
-        app: {{ .name }}
-    spec:
-      containers:
-        - name: {{.name}}
-          image: {{.image}}
-          ports:
-            - name: {{.name}}
-              containerPort: {{.port}}
-          envFrom:
-            - configMapRef:
-                name: helm-task-cm
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: {{.port}}
-            initialDelaySeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: {{.port}}
-            initialDelaySeconds: 20
-  {{- end }}
+{{/*apiVersion: apps/v1*/}}
+{{/*kind: Deployment*/}}
+{{/*metadata:*/}}
+{{/*  {{- with .Values.helmTaskApp }}*/}}
+{{/*  name: {{ .name }}-deployment*/}}
+{{/*  labels:*/}}
+{{/*    app: {{ .name }}*/}}
+{{/*spec:*/}}
+{{/*  replicas: {{ .replicas }}*/}}
+{{/*  selector:*/}}
+{{/*    matchLabels:*/}}
+{{/*      app: {{ .name }}*/}}
+{{/*  template:*/}}
+{{/*    metadata:*/}}
+{{/*      labels:*/}}
+{{/*        app: {{ .name }}*/}}
+{{/*    spec:*/}}
+{{/*      containers:*/}}
+{{/*        - name: {{.name}}*/}}
+{{/*          image: {{.image}}*/}}
+{{/*          ports:*/}}
+{{/*            - name: {{.name}}*/}}
+{{/*              containerPort: {{.port}}*/}}
+{{/*          envFrom:*/}}
+{{/*            - configMapRef:*/}}
+{{/*                name: helm-task-cm*/}}
+{{/*          readinessProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: /actuator/health/readiness*/}}
+{{/*              port: {{.port}}*/}}
+{{/*            initialDelaySeconds: 10*/}}
+{{/*          livenessProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: /actuator/health/liveness*/}}
+{{/*              port: {{.port}}*/}}
+{{/*            initialDelaySeconds: 20*/}}
+{{/*  {{- end }}*/}}
