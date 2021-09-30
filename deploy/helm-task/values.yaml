@@ -8,7 +8,7 @@ helmTaskApp:
 credentials:
   database:
     name: otus
-    uri: jdbc:postgresql://helm-task-postgresql-ha-postgresql:5432/otus
+    uri: jdbc:postgresql://helm-task-postgresql-ha-pgpool:5432/otus
     username: postgres
     password: root
 
@@ -23,6 +23,11 @@ postgresql-ha:
     repmgrDatabase: repmgr
 #  commonAnnotations:
 #    "helm.sh/hook": pre-install
+
+keycloak:
+  auth:
+    adminUser: admin
+    adminPassword: admin
 
 
 nginx-ingress-controller:

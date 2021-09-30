@@ -12,6 +12,9 @@ dependencies:
   - name: nginx-ingress-controller
     version: 7.6.21
     repository: https://charts.bitnami.com/bitnami
+  - name: keycloak
+    version: 5.0.7
+    repository: https://charts.bitnami.com/bitnami
 #  - name: kube-prometheus-stack
 #    version: 18.0.10
 #    repository: https://prometheus-community.github.io/helm-charts

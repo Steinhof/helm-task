@@ -1,7 +1,7 @@
 package com.otus.helm.entity
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+import javax.persistence.Entity
 
 enum class UserRole {
     ADMIN,
@@ -15,11 +15,10 @@ enum class Permissions {
     USER_DELETE
 }
 
-@Table
 data class Role(
 
     @Id
-    private val name: UserRole,
+    val name: UserRole,
 
-    private val permissions: List<Permissions>
+    val permissions: List<String>
 )

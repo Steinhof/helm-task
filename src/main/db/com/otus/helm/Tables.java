@@ -4,6 +4,7 @@
 package com.otus.helm;
 
 
+import com.otus.helm.tables.FlywaySchemaHistory;
 import com.otus.helm.tables.Role;
 import com.otus.helm.tables.Users;
 
@@ -13,6 +14,11 @@ import com.otus.helm.tables.Users;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>public.flyway_schema_history</code>.
+     */
+    public static final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
      * The table <code>public.role</code>.

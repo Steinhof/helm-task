@@ -4,17 +4,12 @@
 package com.otus.helm.tables;
 
 
-import com.otus.helm.Indexes;
 import com.otus.helm.Keys;
 import com.otus.helm.Public;
 import com.otus.helm.tables.records.RoleRecord;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Row2;
@@ -95,11 +90,6 @@ public class Role extends TableImpl<RoleRecord> {
     @Override
     public Schema getSchema() {
         return aliased() ? null : Public.PUBLIC;
-    }
-
-    @Override
-    public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.ROLE_NAME_UINDEX);
     }
 
     @Override

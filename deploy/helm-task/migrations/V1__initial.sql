@@ -11,7 +11,7 @@ alter table role
 
 create table users
 (
-    id       bigint  not null
+    id       bigserial
         constraint user_pk
             primary key,
     login    varchar not null,
@@ -31,9 +31,6 @@ create unique index user_id_uindex
 
 create unique index users_login_uindex
     on users (login);
-
-create unique index role_name_uindex
-    on role (name);
 
 create type permissions as enum ('USER_UPDATE', 'USER_READ', 'USER_DELETE');
 

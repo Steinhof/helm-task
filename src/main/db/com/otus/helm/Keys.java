@@ -4,8 +4,10 @@
 package com.otus.helm;
 
 
+import com.otus.helm.tables.FlywaySchemaHistory;
 import com.otus.helm.tables.Role;
 import com.otus.helm.tables.Users;
+import com.otus.helm.tables.records.FlywaySchemaHistoryRecord;
 import com.otus.helm.tables.records.RoleRecord;
 import com.otus.helm.tables.records.UsersRecord;
 
@@ -27,6 +29,7 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<FlywaySchemaHistoryRecord> FLYWAY_SCHEMA_HISTORY_PK = Internal.createUniqueKey(FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, DSL.name("flyway_schema_history_pk"), new TableField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.INSTALLED_RANK }, true);
     public static final UniqueKey<RoleRecord> ROLE_PK = Internal.createUniqueKey(Role.ROLE, DSL.name("role_pk"), new TableField[] { Role.ROLE.NAME }, true);
     public static final UniqueKey<UsersRecord> USER_PK = Internal.createUniqueKey(Users.USERS, DSL.name("user_pk"), new TableField[] { Users.USERS.ID }, true);
 

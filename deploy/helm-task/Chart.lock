@@ -5,5 +5,8 @@ dependencies:
 - name: nginx-ingress-controller
   repository: https://charts.bitnami.com/bitnami
   version: 7.6.21
-digest: sha256:e265ea8602ba069c5c724d2a7c16a4d4c5cee36ae32d9cb3968b70e50c937888
-generated: "2021-09-25T15:47:01.625097021+03:00"
+- name: keycloak
+  repository: https://charts.bitnami.com/bitnami
+  version: 5.0.7
+digest: sha256:90921d528e5ba903600fa112d31e780fef41c839e93ccb377677a92ff09c282b
+generated: "2021-09-27T00:47:33.212103475+03:00"

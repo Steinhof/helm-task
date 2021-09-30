@@ -4,6 +4,7 @@
 package com.otus.helm;
 
 
+import com.otus.helm.tables.FlywaySchemaHistory;
 import com.otus.helm.tables.Role;
 import com.otus.helm.tables.Users;
 
@@ -11,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.jooq.Catalog;
-import org.jooq.Sequence;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
@@ -28,6 +28,11 @@ public class Public extends SchemaImpl {
      * The reference instance of <code>public</code>
      */
     public static final Public PUBLIC = new Public();
+
+    /**
+     * The table <code>public.flyway_schema_history</code>.
+     */
+    public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
      * The table <code>public.role</code>.
@@ -53,15 +58,9 @@ public class Public extends SchemaImpl {
     }
 
     @Override
-    public final List<Sequence<?>> getSequences() {
-        return Arrays.asList(
-            Sequences.USER_ID_SEQ
-        );
-    }
-
-    @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
             Role.ROLE,
             Users.USERS
         );

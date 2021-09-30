@@ -1,19 +1,14 @@
 package com.otus.helm.entity
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+import javax.persistence.*
 
-@Table("users")
-data class User(
+class User(
 
-    @Id
-    val id: Long?,
+    var username: String,
 
-    val login: String,
+    var password: String,
 
-    val password: String,
+    var name: String,
 
-    val name: String,
-
-    val role: String,
+    var role: String,
 )

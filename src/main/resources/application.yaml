@@ -1,19 +1,17 @@
 spring:
   main:
     banner-mode: off
-  r2dbc:
-    url: r2dbc:postgresql://192.168.49.2:32766/otus
-    username: postgres
-    password: root
-    pool:
-      enabled: true
-      max-idle-time: 1m
   devtools:
     livereload:
       enabled: false
   sql:
     init:
       platform: postgres
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/otus
+    username: postgres
+    password: root
 management:
   endpoint:
     health:
@@ -34,6 +32,14 @@ management:
     enable:
       all: true
 
+keycloak:
+  auth-server-url: http://localhost:8081/auth
+  realm: master
+  resource: helm-task
+  use-resource-role-mappings: true
+  bearer-only: true
+  credentials:
+    secret: d7fc454d-6537-48fc-b122-db402dfe6ca9
 
 logging:
   level:

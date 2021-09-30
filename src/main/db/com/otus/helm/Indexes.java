@@ -4,7 +4,7 @@
 package com.otus.helm;
 
 
-import com.otus.helm.tables.Role;
+import com.otus.helm.tables.FlywaySchemaHistory;
 import com.otus.helm.tables.Users;
 
 import org.jooq.Index;
@@ -23,7 +23,7 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index ROLE_NAME_UINDEX = Internal.createIndex(DSL.name("role_name_uindex"), Role.ROLE, new OrderField[] { Role.ROLE.NAME }, true);
+    public static final Index FLYWAY_SCHEMA_HISTORY_S_IDX = Internal.createIndex(DSL.name("flyway_schema_history_s_idx"), FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, new OrderField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.SUCCESS }, false);
     public static final Index USER_ID_UINDEX = Internal.createIndex(DSL.name("user_id_uindex"), Users.USERS, new OrderField[] { Users.USERS.ID }, true);
     public static final Index USERS_LOGIN_UINDEX = Internal.createIndex(DSL.name("users_login_uindex"), Users.USERS, new OrderField[] { Users.USERS.LOGIN }, true);
 }
